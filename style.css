@@ -1,0 +1,114 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.slider-container {
+  margin: auto;
+  display: grid;
+  grid-template-columns: 60px 1fr 60px;
+  align-items: center;
+  text-wrap: nowrap;
+}
+
+.wrapper-slider {
+  overflow: hidden;
+}
+
+.slider {
+  display: flex;
+  transition: transform 1s;
+
+}
+
+.slider-image {
+  /* width: 100%; */
+  max-width: 768px;
+}
+
+.arrow {
+  cursor: pointer;
+  width: 50px;
+  height: 50px;
+  justify-self: center;
+}
+
+.arrow:hover {
+  width: 60px;
+  height: 60px;
+}
+
+.arrow:hover circle {
+  fill: #8183fa;
+}
+
+.arrow-right,
+.arrow-left {
+  justify-self: center;
+}
+
+.start-stop-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 2px solid black;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.start-stop-container:hover {
+  background-color: rgb(192, 188, 188);
+}
+
+.start-button {
+  padding: 10px;
+}
+
+.slider-dots-container {
+  height: 30px;
+  grid-column: 2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+
+.dot {
+  width: 15px;
+  height: 15px;
+  border: 2px solid black;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.dot:hover {
+  background-color: #8183fa;
+  width: 20px;
+  height: 20px;
+}
+
+.dot.active {
+  background-color: #8183fa;
+  width: 20px;
+  height: 20px;
+}
+
+.dot-square {
+  width: 15px;
+  height: 15px;
+  border: 2px solid black;
+  cursor: pointer;
+}
+
+.dot-square:hover {
+  background-color: #8183fa;
+  width: 20px;
+  height: 20px;
+}
+
+.dot-square.active {
+  background-color: #8183fa;
+  width: 20px;
+  height: 20px;
+}
