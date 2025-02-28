@@ -5,6 +5,15 @@ export class Slider {
   arrowContainerWidth = 60;
 
   constructor(images, containerId, intervalTiming, isAutostart, dotStyle) {
+
+    if (!Array.isArray(images) || images.length === 0) {
+      throw new Error("'images' должен быть непустым массивом.");
+    }
+
+    if (!containerId || typeof containerId !== 'string') {
+      throw new Error(" 'containerId' должен быть задан и быть строкой.");
+    }
+
     this.images = images;
     this.containerId = `#${containerId}`;
     this.intervalTiming = intervalTiming || 2;
@@ -28,6 +37,7 @@ export class Slider {
     this.sliderContainer = document.querySelector(`${this.containerId}`);
     this.createImages();
     this.sliderImages = document.querySelectorAll(`${this.containerId} .slider-image`);
+    console.log('sliderImages -', this.sliderImages);
     this.createDots();
 
     this.arrowLeft.addEventListener("click", this.arrowLeftClick.bind(this));
@@ -61,7 +71,11 @@ export class Slider {
 
 
   getImageWidth() {
+    if (!this.sliderImages || this.sliderImages.length === 0) {
+      throw new Error('sliderImages is empty or not defined');
+    }
     return this.sliderImages[0].getBoundingClientRect().width;
+
   }
 
   updateSlider() {
